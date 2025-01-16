@@ -135,43 +135,10 @@
 
     <script>
         document.getElementById('submitBtn').addEventListener('click', function () {
-            const formData = {
-                restaurant: document.getElementById('restaurant').value,
-                sitting: document.getElementById('sitting').value,
-                guests: document.getElementById('guests').value,
-                bookingDate: document.getElementById('booking-date').value
-            };
-
-            // Perform validation before sending
-            if (!formData.restaurant || !formData.sitting || !formData.guests || !formData.bookingDate) {
-                alert('Please fill out all fields!');
-                return;
-            }
-
-            fetch('https://prod-136.westus.logic.azure.com:443/workflows/245f738178f4410293a9bd9927467c55/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=5Aj1wWTwyAWFf9MRIblbn32BSPJKKALjLFIFQfeH3j0', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            })
-                .then(response => {
-                    // if (response.ok) {
-                    //                      gtag('event', 'booking_complete', {
-                    //       'event_category': 'Bookings',
-                    //       'event_label': 'Confirm Booking Button',
-                    //       'value': 100 // Replace with actual booking value
-                    //     });
-                    //     alert('Booking successful!');
-                    //     document.getElementById("bookingForm").reset();    
-                    // } else {
-                    //     alert('Failed to book. Please try again.');
-                    // }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('An error occurred. Please try again.');
-                });
+            setTimeout(() => {
+                alert('Booking successful!');
+                document.getElementById("bookingForm").reset();
+            }, 2000); // 2000 milliseconds = 2 seconds
         });
     </script>
 </body>
